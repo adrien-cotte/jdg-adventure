@@ -8,7 +8,7 @@ class Neo(pygame.sprite.Sprite):
         self.game = game
         self.health = 3
         self.max_health = 3
-        self.attack = 0.1
+        self.attack = 1
         self.image = pygame.image.load('neo_flying.gif')
         self.rect = self.image.get_rect()
         self.rect.x = 1020 + random.randint(20,320)
