@@ -11,12 +11,12 @@ class Player(pygame.sprite.Sprite):
         self.attack = 1
         self.velocity = 10
         self.all_projectiles = pygame.sprite.Group()
-        self.image_1 = pygame.image.load('jdg_immobileD.gif')
-        self.image_2 = pygame.image.load('jdg_immobileG.gif')
-        self.image_3 = pygame.image.load('jdgD.gif')
-        self.image_4 = pygame.image.load('jdgG.gif')
+        self.image_immobileD = pygame.image.load('jdg_immobileD.gif')
+        self.image_immobileG = pygame.image.load('jdg_immobileG.gif')
+        self.image_D = pygame.image.load('jdgD.gif')
+        self.image_G = pygame.image.load('jdgG.gif')
         self.image_S = pygame.image.load('jdgD_saut.gif')
-        self.image = self.image_1
+        self.image = self.image_immobileD
         self.rect = self.image.get_rect()
         self.rect.x = 50
         self.rect.y = 425
@@ -42,8 +42,8 @@ class Player(pygame.sprite.Sprite):
         #vérification d'une éventuelle collision
         if not self.game.check_collision(self, self.game.all_cyclopes):
             self.rect.x += self.velocity
-            self.image = self.image_1
+            self.image = self.image_D
 
     def move_left(self):
         self.rect.x -= self.velocity
-        self.image = self.image_4
+        self.image = self.image_G
