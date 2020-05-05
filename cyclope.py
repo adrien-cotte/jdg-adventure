@@ -20,7 +20,9 @@ class Cyclope(pygame.sprite.Sprite):
         self.health -= amount
         if self.health <=0:
             #réaparition comme un nouveau ennemi
-            self.remove()
+            self.rect.x = 1020 + random.randint(20, 650)
+            self.health = self.max_health
+            self.velocity = random.randint(6, 14)
     
     def forward(self):
         #vérification d'une éventuelle collision
