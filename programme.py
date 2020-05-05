@@ -16,6 +16,9 @@ game = Game()
 isJump = False
 jumpCount = 10
 
+#touche appuyée
+touche = ""
+
 continuer = True
 while continuer:
     pygame.time.delay(22)
@@ -51,9 +54,9 @@ while continuer:
     game.all_neo.draw(window)
     
     #verifier si le joueur souhaite aller à gauche ou à droite
-    if game.pressed.get(pygame.K_d) and game.player.rect.x + game.player.rect.width < window.get_width():
+    if touche == "d" and game.player.rect.x + game.player.rect.width < window.get_width():
         game.player.move_right()
-    elif game.pressed.get(pygame.K_q) and game.player.rect.x > 0:
+    elif touche == "q" and game.player.rect.x > 0:
         game.player.move_left()
      
     if not (isJump):   
@@ -83,9 +86,11 @@ while continuer:
         #détection des touches du clavier
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
+            touche = event.unicode
             
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
+            touche = ""
             
         elif event.type == MOUSEBUTTONDOWN and event.button == 1:
             game.player.launch_projectile()
